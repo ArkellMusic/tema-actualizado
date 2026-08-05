@@ -1,0 +1,137 @@
+/* =========================================================
+   AM SHOP — OVERRIDES PRODUCTO / COLECCIÓN
+   Aplica la estética "cielo y nubes" del home a la página
+   de producto y a la colección/grid de productos.
+   Se activa según el atributo data-template del <main>.
+   ========================================================= */
+
+/* La barra superior (header) se oculta directamente desde
+   layout/theme.liquid (no se renderiza en producto/colección),
+   así que aquí no hace falta ocultarla por CSS. */
+
+/* -----------------------------------------------------------
+   Fondo transparente para que se vea el vídeo de nubes
+   ----------------------------------------------------------- */
+
+main[data-template="product"],
+main[data-template="collection"] {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+main[data-template="product"] product-info,
+main[data-template="collection"] .color-background-1,
+main[data-template="collection"] .gradient {
+  background: transparent !important;
+}
+
+/* -----------------------------------------------------------
+   GRID DE PRODUCTOS (colección)
+   ----------------------------------------------------------- */
+
+main[data-template="collection"] .card,
+main[data-template="collection"] .card__inner,
+main[data-template="collection"] .card__content,
+main[data-template="collection"] .card-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+main[data-template="collection"] .card__media {
+  background: transparent !important;
+}
+
+/* La imagen del producto "flota" sin fondo, con resplandor (bloom) */
+main[data-template="collection"] .card__media img,
+main[data-template="collection"] .media img {
+  background: transparent !important;
+  mix-blend-mode: normal;
+  filter:
+    drop-shadow(0 0 18px rgba(190, 225, 255, 0.55))
+    drop-shadow(0 0 40px rgba(150, 210, 255, 0.30));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+main[data-template="collection"] .card-wrapper:hover .card__media img {
+  filter:
+    drop-shadow(0 0 26px rgba(190, 225, 255, 0.75))
+    drop-shadow(0 0 55px rgba(150, 210, 255, 0.45));
+  transform: translateY(-4px);
+}
+
+/* Texto (título / precio) legible sobre el cielo */
+main[data-template="collection"] .card__heading,
+main[data-template="collection"] .card__heading a,
+main[data-template="collection"] .price {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+/* -----------------------------------------------------------
+   PÁGINA DE PRODUCTO INDIVIDUAL
+   ----------------------------------------------------------- */
+
+main[data-template="product"] .product__media-wrapper,
+main[data-template="product"] .product__media,
+main[data-template="product"] .product-media-container,
+main[data-template="product"] .product__media-list,
+main[data-template="product"] .product__media-item {
+  background: transparent !important;
+}
+
+main[data-template="product"] .product__media img,
+main[data-template="product"] .product__media-item img {
+  background: transparent !important;
+  filter:
+    drop-shadow(0 0 25px rgba(190, 225, 255, 0.55))
+    drop-shadow(0 0 55px rgba(150, 210, 255, 0.30));
+}
+
+main[data-template="product"] .product__info-wrapper,
+main[data-template="product"] .product__info-container {
+  background: transparent !important;
+}
+
+main[data-template="product"] .product__title,
+main[data-template="product"] .product__title h1,
+main[data-template="product"] .price,
+main[data-template="product"] .product__description,
+main[data-template="product"] .product__accordion {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+/* Miniaturas de variante / thumbnails también transparentes */
+main[data-template="product"] .thumbnail,
+main[data-template="product"] .product__media-toggle {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* -----------------------------------------------------------
+   CARRITO LATERAL (drawer) — estética glass sobre el cielo
+   ----------------------------------------------------------- */
+
+cart-drawer .drawer__inner,
+#CartDrawer {
+  background: rgba(10, 20, 30, 0.55) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+cart-drawer .cart-item img {
+  filter:
+    drop-shadow(0 0 12px rgba(190, 225, 255, 0.45));
+  background: transparent !important;
+}
+
+cart-drawer,
+cart-drawer .drawer__heading,
+cart-drawer .cart-item__name,
+cart-drawer .price,
+cart-drawer .totals__subtotal-value {
+  color: #ffffff !important;
+}

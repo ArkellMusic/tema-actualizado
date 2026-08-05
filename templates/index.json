@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "am_hero": {
+      "type": "am-hero",
+      "settings": {}
+    }
+  },
+  "order": [
+    "am_hero"
+  ]
+}

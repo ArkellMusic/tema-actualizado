@@ -1,0 +1,55 @@
+{% comment %}
+  AM SHOP — Fondo global reutilizable
+  Vídeo de nubes en loop + logo 3D pequeño rotando (arriba izquierda).
+  Se usa en cualquier plantilla que deba mantener la estética del home
+  (producto, colección, etc). NO incluye el logo grande ni el botón "ENTRAR",
+  eso es exclusivo de la sección am-hero del index.
+
+  Uso:
+  {% render 'am-bg' %}
+{% endcomment %}
+
+{{ 'am-bg.css' | asset_url | stylesheet_tag }}
+
+<div class="am-bg" data-am-bg aria-hidden="true">
+
+  <video
+    class="am-bg__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="{{ 'clouds-loop.mp4' | asset_url }}" type="video/mp4">
+  </video>
+
+  <div class="am-bg__overlay"></div>
+
+  <div class="am-bg__mini-logo">
+    <model-viewer
+      src="{{ 'am-logo.glb' | asset_url }}"
+      camera-controls="false"
+      disable-zoom
+      auto-rotate
+      auto-rotate-delay="0"
+      rotation-per-second="18deg"
+      interaction-prompt="none"
+      environment-image="neutral"
+      exposure="1"
+      shadow-intensity="0"
+      loading="eager"
+      aria-label="Logo AM"
+    ></model-viewer>
+  </div>
+
+</div>
+
+<script>
+  if (!window.customElements.get('model-viewer')) {
+    var s = document.createElement('script');
+    s.type = 'module';
+    s.src = 'https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js';
+    document.head.appendChild(s);
+  }
+</script>
