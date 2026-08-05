@@ -11,18 +11,36 @@
 
 /* -----------------------------------------------------------
    Fondo transparente para que se vea el vídeo de nubes
+   El tema pinta el fondo en <body> y en cada wrapper de sección
+   con la clase "gradient color-scheme-X" (color del scheme).
+   Hay que anular todas esas capas, no solo el <main>.
    ----------------------------------------------------------- */
+
+html,
+body.template-product,
+body.template-collection {
+  background: transparent !important;
+}
 
 main[data-template="product"],
 main[data-template="collection"] {
   background: transparent !important;
+  background-image: none !important;
   position: relative;
   z-index: 1;
 }
 
+body.template-product .gradient,
+body.template-collection .gradient,
+body.template-product [class*="color-"],
+body.template-collection [class*="color-"] {
+  background: transparent !important;
+  background-image: none !important;
+  --gradient-background: transparent !important;
+}
+
 main[data-template="product"] product-info,
-main[data-template="collection"] .color-background-1,
-main[data-template="collection"] .gradient {
+main[data-template="collection"] collection-component {
   background: transparent !important;
 }
 
