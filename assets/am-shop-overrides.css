@@ -161,6 +161,7 @@ main[data-template="collection"] .pagination__item--current {
 /* -----------------------------------------------------------
    LAYOUT PRODUCTO — Lado a lado (móvil y desktop)
    Imagen a la izquierda, información a la derecha
+   Logo de AM VISIBLE (no tapado)
    ----------------------------------------------------------- */
 
 main[data-template="product"] .product {
@@ -175,6 +176,8 @@ main[data-template="product"] .product__media-wrapper {
   padding-left: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
+  position: relative;
+  z-index: 1;
 }
 
 main[data-template="product"] .product__info-wrapper {
@@ -182,6 +185,14 @@ main[data-template="product"] .product__info-wrapper {
   padding: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo de AM visible por encima */
+main[data-template="product"] media-gallery {
+  z-index: 1 !important;
+  position: relative;
 }
 
 @media screen and (min-width: 750px) {
