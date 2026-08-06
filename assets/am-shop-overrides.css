@@ -92,6 +92,7 @@ main[data-template="product"] .product__info-container {
   background: transparent !important;
 }
 
+/* PRODUCTO — Negro minimalista con bloom glow */
 main[data-template="product"] .product__title,
 main[data-template="product"] .product__title h1,
 main[data-template="product"] .price,
@@ -155,4 +156,48 @@ main[data-template="collection"] .pagination__item--current {
     0 0 12px rgba(190, 225, 255, 0.8),
     0 0 24px rgba(150, 210, 255, 0.6),
     0 0 36px rgba(100, 180, 255, 0.4);
+}
+
+/* -----------------------------------------------------------
+   LAYOUT PRODUCTO — Lado a lado (móvil y desktop)
+   Imagen a la izquierda, información a la derecha
+   ----------------------------------------------------------- */
+
+main[data-template="product"] .product {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2rem !important;
+  align-items: flex-start !important;
+}
+
+main[data-template="product"] .product__media-wrapper {
+  order: 1 !important;
+  padding-left: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+main[data-template="product"] .product__info-wrapper {
+  order: 2 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media screen and (min-width: 750px) {
+  main[data-template="product"] .product {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3rem !important;
+  }
+
+  main[data-template="product"] .product__info-wrapper {
+    padding: 0 !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  main[data-template="product"] .product {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+  }
 }
